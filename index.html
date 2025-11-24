@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Verification</title>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #ffffff;
+    font-family: Arial, sans-serif;
+  }
+  label {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  button {
+    padding: 16px 32px;
+    font-size: 20px;
+    border: none;
+    background: #000;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:disabled {
+    background: #888;
+    cursor: not-allowed;
+  }
+</style>
+</head>
+<body>
+
+<label>
+  <input type="checkbox" id="ageCheck">
+  I confirm I am 21+ years or older
+</label>
+
+<button id="enterBtn" disabled>Enter</button>
+
+<script>
+  const check = document.getElementById("ageCheck");
+  const btn = document.getElementById("enterBtn");
+  check.addEventListener("change", () => {
+    btn.disabled = !check.checked;
+  });
+  btn.addEventListener("click", () => {
+    window.location.href = "https://yourpage.com";
+  });
+</script>
+
+</body>
+</html>
