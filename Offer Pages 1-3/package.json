@@ -1,0 +1,16 @@
+{
+  "name": "offer-pages-1-3",
+  "version": "1.0.0",
+  "description": "A modern, responsive sales offer page for Humboldt's Cabinet featuring a clean design with smooth animations and interactive elements.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "website-scraper": "^6.0.0"
+  }
+}
