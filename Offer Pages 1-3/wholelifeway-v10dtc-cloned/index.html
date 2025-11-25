@@ -1,0 +1,1087 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+
+<title>Gummies</title>
+
+<meta name="description" content="Gummies">
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="content-language" content="en-us">
+ <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="/v10dtc/app/desktop/images/og-image.png?v=1764058302">
+<link rel="shortcut icon prefetch" type="image/x-icon" href="/v10dtc/app/desktop/images/favicon.png">
+<link rel="stylesheet" href="css/app.css">
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/v10dtc/app/desktop/images/favicon.png?v=2043284951">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&amp;family=Poppins:wght@300;400;500;700&amp;display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" type="text/css" href="css/checkout.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
+    <link rel="stylesheet" type="text/css" href="css/loading.css">
+    <link rel="stylesheet" type="text/css" href="css/new-style.css">
+    <style>
+        /*CSS FOR MODAL*/
+        #app_common_modal,
+        #error_handler_overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2147483647;
+            background: #333;
+            background: rgba(255, 255, 255, .8);
+            display: none;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch
+        }
+
+        #app_common_modal .app_modal_body,
+        #error_handler_overlay .error_handler_body {
+            max-width: 600px;
+            -webkit-background-clip: padding-box;
+            font-family: Verdana, Geneva, sans-serif;
+            box-sizing: border-box;
+            outline: 0
+        }
+
+        #error_handler_overlay .error_handler_body {
+            margin: 100px auto;
+            width: 95%;
+            padding: 20px;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #999;
+            border: 1px solid rgba(0, 0, 0, .2);
+            border-radius: 0;
+            -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+            box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            position: relative;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box
+        }
+
+        #app_common_modal_close,
+        #error_handler_overlay_close {
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            color: #FFF;
+            background-color: #333;
+            border: 2px solid #FFF;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 700;
+           
+            padding: 0;
+            margin: 0;
+            line-height:2.1;
+        }
+
+        #app_common_modal .app_modal_body {
+            margin: 100px auto;
+            min-width: inherit;
+            width: 95%;
+            min-height: 400px;
+            padding: 2.5%;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #999;
+            border: 1px solid rgba(0, 0, 0, .2);
+            border-radius: 0;
+            -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+            box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            position: relative;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box
+        }
+
+        #app_common_modal .app_modal_body iframe {
+            min-height: 400px;
+            width: 100%;
+            border: 1px solid #d5d6ef
+        }
+
+        .exitpop-content {
+            position: fixed;
+            height: 400px;
+            width: 708px;
+            margin: -200px 0 0 -354px;
+            top: 50%;
+            left: 50%;
+            text-align: left;
+            padding: 0;
+            border: none;
+            z-index: 2147483647
+        }
+
+        .exitpopup-overlay {
+            background: rgba(0, 0, 0, .6);
+            height: 100%;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2147483647;
+            display: none
+        }
+
+        .exitpop-content img {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            max-width: 100%;
+            height: auto
+        }
+
+        .exitpop-discountbar {
+            background-color: red;
+            border-bottom: 4px dashed #fff;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            height: 50px;
+            line-height: 50px;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            display: none
+        }
+
+        .app-load-spinner {
+            display: none;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            background-color: #333;
+            border-radius: 100%
+        }
+
+        #loading-indicator::after,
+        #loading-indicator::before {
+            box-sizing: border-box;
+            left: 50%;
+            position: absolute;
+            top: 50%
+        }
+
+        .all-card-types li {
+            float: left;
+            margin-right: 20px
+        }
+
+        #loading-indicator {
+            background-color: rgba(0, 0, 0, .5);
+            bottom: 0;
+            box-sizing: border-box;
+            font-size: 1px;
+            height: 100%;
+            left: 0;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 2147483646
+        }
+
+        #loading-indicator::before {
+            background: url(..//v10dtc/app/desktop/images/loading.gif) center center no-repeat rgba(0, 0, 0, 0);
+            content: "";
+            height: 70px;
+            margin-left: -35px;
+            margin-top: -70px;
+            width: 70px;
+            z-index: 2
+        }
+
+        #loading-indicator::after {
+            background: #fff;
+            border-radius: 5px;
+            color: #000;
+            content: "Processing, one moment please... ";
+            font-family: arial;
+            font-size: 17px;
+            height: 110px;
+            line-height: 98px;
+            margin-left: -150px;
+            margin-top: -75px;
+            padding-top: 35px;
+            text-align: center;
+            width: 300px;
+            z-index: 1
+        }
+
+        @-webkit-keyframes scaleout {
+            0% {
+                -webkit-transform: scale(0)
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                opacity: 0
+            }
+        }
+
+        @keyframes scaleout {
+            0% {
+                transform: scale(0);
+                -webkit-transform: scale(0)
+            }
+
+            100% {
+                transform: scale(1);
+                -webkit-transform: scale(1);
+                opacity: 0
+            }
+        }
+
+
+        @media screen and (max-device-width:767px) and (orientation:landscape) {
+
+            #app_common_modal .app_modal_body,
+            #error_handler_overlay .error_handler_body {
+                margin: 20px auto;
+            }
+
+            #app_common_modal .app_modal_body iframe {
+                min-height: 360px;
+            }
+        }
+
+
+        @media(max-device-width:767px) {
+            #app_common_modal .app_modal_body {
+                margin: 2% auto
+            }
+        }
+    </style>
+
+</head>
+
+
+<body class="checkout">
+
+    <div class="wrapper">
+        <div id="app">
+
+            <header class="header">
+                <div class="header__warning">
+                    <div class="container">
+                        <span class="alert-color">Warning:</span> Due to extremely high media demand, there is limited
+                        supply of <span class="product-name">Aspen Dose CBD Gummies</span> in stock as of <span class="date-container"></span> <span class="hurry">HURRY! <span id="demo2"></span></span>
+                    </div> 
+                </div>
+
+                <div class="container row">
+                    <img src="img/logo-lp.png" alt="" class="header__logo">
+                    <div class="header__info row">
+                        <div class="delivery-block">Internet Exclusive Offers<br>Available to USA Residents Only</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="order" id="topfrm">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="order__left">
+
+                            <div class="steps">
+                                <ul class="steps__list row">
+                                    <li class="steps__item">1. Shipping Info</li>
+                                    <li class="steps__item" style="background-color: #fd6f03;color: #fff;">2. Finish
+                                        Order</li>
+                                    <li class="steps__item">3. Summary</li>
+                                </ul>
+                                <div class="approved-text">
+                                    <strong><span class="emphasis">APPROVED!</span> Free Bottle Packages
+                                        Confirmed</strong>
+                                </div>
+                                <p>Limited supply available as of <span class="full-date date-container"></span>. We
+                                    currently have product <strong>in stock</strong> and ready to ship within 24 hours.
+                                </p>
+                                <p class="status-pr">Sell Out Risk: <span>HIGH</span></p>
+                            </div>
+
+                            <div class="product-selection">
+
+                                <div class="product product1 sel-prod active" id="pack5">
+                                    <div class="package-item">
+                                        <div class="package-item__header">
+                                            <div class="title-block">
+                                                <span class="title-block__main">BUY 3 GET 3 FREE</span>
+                                            </div>
+                                            <div class="shipping-row"><span>FREE SHIPPING</span></div>
+                                        </div>
+                                        <div class="package-item__content">
+                                            <div class="package-item__status"><span></span></div>
+                                            <div class="package-images">
+                                                <div class="package-images__item pck-itm-1">
+                                                    <img src="img/product.png" alt="" class="pck-prd-lft">
+                                                    <img src="img/product.png" alt="" class="pck-prd-ctr">
+                                                    <img src="img/product.png" alt="" class="pck-prd-rgt">
+                                                </div>
+                                                <div class="package-images__item pck-itm-2">
+                                                    <img src="img/product.png" alt="" class="pck-prd-lft">
+                                                    <img src="img/product.png" alt="" class="pck-prd-ctr">
+                                                    <img src="img/product.png" alt="" class="pck-prd-rgt">
+                                                </div>
+                                                <div class="package__save">
+                                                    <span class="package__save_title">SAVE</span>
+                                                    <span class="package__save_item save-price">$197.55</span>
+                                                </div>
+                                            </div>
+                                            <div class="package-info">
+                                                <span class="package-info__title">6 Bottles CBD Gummies Pack</span>
+                                                <span class="package-info__price">
+                                                    <p class="price-first"></p>
+                                                    <span><span class="price-top">$39.99</span><br>bottle</span>
+                                                </span>
+                                                <span class="package-info__retail">Retail: <span>$79.50</span></span>
+                                                <span class="package-info__btn">Selected!</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="product product2 sel-prod" id="pack3">
+                                    <div class="package-item">
+                                        <div class="package-item__header">
+                                            <div class="title-block"> <span class="title-block__main">BUY 2 GET 2
+                                                    FREE</span></div>
+                                            <div class="shipping-row"><span>FREE SHIPPING</span></div>
+                                        </div>
+                                        <div class="package-item__content">
+                                            <div class="package-item__status"><span></span></div>
+                                            <div class="package-images">
+                                                <div class="package-images__item">
+                                                    <img src="img/product.png" alt="" class="pck-prd-ctr">
+                                                    <img src="img/product.png" alt="" class="pck-prd-rgt">
+                                                </div>
+                                                <div class="package-images__item">
+                                                    <img src="img/product.png" alt="" class="pck-prd-ctr">
+                                                    <img src="img/product.png" alt="" class="pck-prd-rgt">
+                                                </div>
+                                                <div class="package__save">
+                                                    <span class="package__save_title">SAVE</span>
+                                                    <span class="package__save_item save-price">$78.51</span>
+                                                </div>
+                                            </div>
+                                            <div class="package-info">
+                                                <span class="package-info__title">4 Bottles CBD Gummies Pack</span>
+                                                <span class="package-info__price">
+                                                    <p class="price-first"></p>
+                                                    <span><span class="price-top">$53.33</span><br>bottle</span>
+                                                </span>
+                                                <span class="package-info__retail">Retail: <span>$79.50</span></span>
+                                                <span class="package-info__btn">Select Package</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="product product3 sel-prod" id="pack2">
+                                    <div class="package-item">
+                                        <div class="package-item__header">
+                                            <div class="title-block">
+                                                <span class="title-block__main">BUY 1 GET 1 50% OFF</span>
+                                            </div>
+                                            <div class="shipping-row">
+                                                <span>FREE SHIPPING</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-item__content">
+                                            <div class="package-item__status"><span></span></div>
+                                            <div class="package-images">
+                                                <div class="package-images__item">
+                                                    <img src="img/product.png" alt="" class="pck-prd-ctr">
+                                                </div>
+                                                <div class="package-images__item">
+                                                    <img src="img/product.png" alt="" class="pck-prd-ctr">
+                                                </div>
+                                                <div class="package__save">
+                                                    <span class="package__save_title">SAVE</span>
+                                                    <span class="package__save_item save-price">$38.92</span>
+                                                </div>
+                                            </div>
+                                            <div class="package-info">
+                                                <span class="package-info__title">2 Bottles CBD Gummies Pack</span>
+                                                <span class="package-info__price">
+                                                    <p class="price-first"></p>
+                                                    <span><span class="price-top">$60.04</span><br>bottle</span>
+                                                </span>
+                                                <span class="package-info__retail">Retail: <span>$79.50</span></span>
+                                                <span class="package-info__total"></span>
+                                                <span class="package-info__btn">Select Package</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <img class="img-responsive secure-icons show-desktop" src="img/secureicons_14.svg">
+                                <div class="guarantee-block show-desktop">
+                                    <div class="guarantee-top">30 day money back guarantee</div>
+                                    <div class="guarantee-content">
+                                        <img alt="" class="guarantee-icon" src="img/30-money.png"> 
+                                        <div class="guarantee-text">
+                                            <p>
+                                                We are so confident in our products and services, that
+                                                we back it with a 30 day money back guarantee. If for
+                                                any reason you are not fully satisfied with our
+                                                products, simply return the purchased products in the
+                                                original container within 30 days of when you received
+                                                your order. We will refund you 100% of the purchase
+                                                price - with absolutely no hassle.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="order__right">
+
+                            <div class="form__header">
+                                <h2>TELL US </h2>
+                                <h3>WHERE TO SEND YOUR BOTTLE</h3>
+                            </div>
+
+                            <div class="form__in show-3ds-popup" style="padding-top: 1.5rem;">
+
+                                <form method="post" action="ajax.php" name="downsell_form1" accept-charset="utf-8" enctype="application/x-www-form-urlencoded;charset=utf-8" class="form_style"> 
+                  <input type="hidden" name="campaigns[1][id]" id="campaign_id" value="3">
+
+                  <!-- -----shipping-form-------- -->
+
+                        <h3 class="frm-head ship-head-text">Shipping Details</h3>
+
+                        <div class="row margin-bottom-5 discount-block promo-field">
+                                    <div class="phone-6 columns form-holder">
+                                        <label>Discount Code:</label>
+                                        <input class="form-control" placeholder="Promo code" disabled="" type="text" value="H728KOI731">
+                                    </div>
+                                    <div class="phone-6 columns form-holder">
+                                        <p><strong>Congratulation!</strong> <br>Discount Code<strong class="grren"> Activated!</strong></p>
+                                    </div>
+                                </div>
+                                <div class="row margin-bottom-5">
+                                    <div class="phone-6 columns form-holder">
+                                        <label>First Name:*</label>
+                                    </div>
+                                    <div class="phone-6 columns form-holder">
+                                        <label>Last Name:*</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="phone-6 columns form-holder">
+                                        <input type="text" name="firstName" placeholder="First Name*" class="required form-control" value="" data-error-message="Please enter your first name!" id="fields_fname">
+                                    </div>
+                                    <div class="phone-6 columns form-holder">
+                                        <input type="text" name="lastName" placeholder="Last Name*" class="required form-control" value="" data-error-message="Please enter your last name!" id="fields_lname">
+                                    </div>
+                                </div>
+                                <div class="margin-bottom-5">
+                                    <div class="phone-12 columns form-holder">
+                                        <label>Address:*</label>
+                                    </div>
+                                </div>
+                                <div class="phone-12 columns form-holder">
+                                   <input type="text" name="shippingAddress1" placeholder="Address*" class="required form-control" value="" data-error-message="Please enter your address!" id="fields_address1">
+                                </div>
+                                <div class="row">
+                                    <div class="phone-6 columns form-holder">
+                                        <label>Address 2:</label>
+                                    </div>
+                                    <div class="phone-6 columns form-holder">
+                                        <label>City:*</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="phone-6 columns form-holder">
+                                        <input type="text" name="shippingAddress2" placeholder="Suite, Apt#" class="form-control" value="" data-error-message="Please enter your suite, apt!" id="fields_address2">
+                                    </div>
+                                    <div class="phone-6 columns form-holder">
+                                        <input type="text" name="shippingCity" placeholder="City*" class="required form-control" value="" data-error-message="Please enter your city!" id="fields_city">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="phone-6 columns form-holder">
+                                        <bdo>State:*</bdo>
+                                    </div>
+                                    <div class="phone-6 columns form-holder">
+                                        <bdo>Zip:*</bdo>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="phone-6 columns form-holder">
+                                    <select name="shippingCountry" class="required form-control" data-selected="US" data-error-message="Please select your country!" style="display:none;">
+                                    <option value="">Select Country</option>
+                                  </select>
+                                        <input type="text" name="shippingState" placeholder="Your State" class="required form-control" data-selected="" data-error-message="Please select your state!" readonly="" id="fields_state">
+                                    </div>
+                                    <div class="phone-6 columns form-holder">
+                                        <input type="tel" name="shippingZip" placeholder="Zip Code*" class="required form-control" value="" data-error-message="Please enter a valid zip code!" id="fields_zip" maxlength="5" oninput="javascript: this.value = this.value.replace(/[^0-9]/g, '');">
+                                    </div>
+                                </div>
+                                <div class="margin-bottom-5">
+                                    <div class="phone-12 columns form-holder">
+                                        <label>Phone Number:*</label>
+                                    </div>
+                                </div>
+                                <div class="phone-12 columns form-holder">
+                                    <input type="tel" name="phone" placeholder="Phone Number*" class="required form-control" data-validate="phone" data-min-length="10" data-max-length="10" value="" data-error-message="Please enter a valid phone number!" id="fields_phone" maxlength="10" oninput="javascript: this.value = this.value.replace(/[^0-9]/g, '');">
+                                </div>
+                                <div class="margin-bottom-5">
+                                    <div class="phone-12 columns form-holder">
+                                        <label>Email:*</label>
+                                    </div>
+                                </div>
+                                <div class="phone-12 columns form-holder">
+                                    <input type="email" name="email" placeholder="Email*" class="required form-control" value="" data-validate="email" data-error-message="Please enter a valid email id!" id="fields_email">
+                                </div>
+
+
+
+                  <!-- -----shipping-form-------- -->
+                
+                <p style="display:none;">
+                    <label>Billing same as Shipping</label>
+                    <input type="radio" name="billingSameAsShipping" value="yes" checked="checked"> YES
+                    <input type="radio" name="billingSameAsShipping" value="no"> NO
+                </p>
+
+                <div class="same_as_billing">
+                           <input type="checkbox" id="billing_checkbox" value="Billing" checked=""> 
+                           <label for="billing_checkbox" style="cursor: pointer;">  Billing same as Shipping</label>
+                        </div> 
+
+                <div class="billing_form p-20 billing-info" style="display:none;">
+                    <h3>Billing Details</h3>
+                    <div class="frm_grp">
+                        <div class="frm_row flex j_sb col_gap_14">
+                            <div class="frm_half">
+                                <label>First Name:*</label>
+                                <input type="text" name="billingFirstName" placeholder="First Name" data-error-message="Please enter your billing first name!" value="">
+                            </div>
+                            <div class="frm_half">
+                                <label>Last Name:*</label>
+                                <input type="text" name="billingLastName" placeholder="Last Name" data-error-message="Please enter your billing last name!" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm_grp">
+                        <div class="frm_row">
+                            <label>Country / Region:*</label>
+                            <select name="billingCountry" data-error-message="Please select your billing country!">
+                                <option value="">Select Country</option>
+                            </select>
+                        </div>
+                        <div class="frm_grp">
+                            <div class="frm_row">
+                                <label>Street address:*</label>
+                                <input style="margin-bottom:12px;" type="text" name="billingAddress1" placeholder="House number and street name" data-error-message="Please enter your billing address!" value="">
+                                <input type="text" name="billingAddress2" placeholder="Apartment, suite, unit, etc. (optional)" data-error-message="Please enter your billing address!" value="">
+                            </div>
+                        </div>
+
+                    <div class="frm_grp">
+                            <div class="frm_row">
+                                <bdo>Zip Code:*</bdo>
+                                <input type="tel" name="billingZip" placeholder=" Zip Code" data-error-message="Please enter a valid billing zip code!" oninput="javascript: this.value = this.value.replace(/[^0-9]/g, '');" maxlength="5" value="">
+                            </div>
+                        </div>
+
+                        <div class="frm_grp">
+                            <div class="frm_row">
+                                <label>Town / City:*</label>
+                                <input type="text" name="billingCity" placeholder=" City" data-error-message="Please enter your billing city!" value="">
+                            </div>
+                        </div>
+                        <div class="frm_grp">
+                            <div class="frm_row">
+                                <bdo>State:*</bdo>
+                                <input type="text" name="billingState" placeholder="State" data-error-message="Please select your billing state!" value="">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    </div>
+                    <h3 class="frm-head pay-head-text">Payment Details</h3>
+
+                                    <div class="margin-bottom-5" id="cardBox">
+                                        <div class="phone-12 columns"><label>Card Number:*</label></div>
+                                    </div>
+                            <div class="" style="display:none;">
+                                 <div class="frm_row">
+                                    <label>Card type:*</label>
+                                    <select name="creditCardType" class="required form-control" data-deselect="false" data-error-message="Please select valid card type!">
+                                       <option value="">Card Type</option>
+                                                                              <option value="master">Master Card</option>
+                                                                              <option value="visa">Visa</option>
+                                                                           </select>
+                                 </div>
+                              </div>
+                                    <div class="phone-12 columns form-holder">
+                                        <input type="tel" name="creditCardNumber" class="masked form-control required" maxlength="16" data-error-message="Please enter a valid credit card number!" oninput="javascript: this.value = this.value.replace(/[^0-9]/g, '');" placeholder="Card Number">
+                                    </div>
+                                    <div class="row margin-bottom-5">
+                                        <div class="phone-12 columns"><label>Card Expiry Date:*</label></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="phone-6 columns form-holder">
+                                            <select name="expmonth" class="required form-control" id="cardMonth" data-error-message="Please enter a valid expiry month!" style="display:block;">
+                                                <option value="">Month</option><option value="01">(01) January</option><option value="02">(02) February</option><option value="03">(03) March</option><option value="04">(04) April</option><option value="05">(05) May</option><option value="06">(06) June</option><option value="07">(07) July</option><option value="08">(08) August</option><option value="09">(09) September</option><option value="10">(10) October</option><option value="11">(11) November</option><option value="12">(12) December</option>                                            </select>                   
+                                        </div>
+                                        <div class="phone-6 columns form-holder">
+                                            <select name="expyear" class="required form-control" id="cardYear" data-error-message="Please enter a valid expiry year!" style="display:block;">
+                                              <option value="">Year</option><option value="25">2025</option><option value="26">2026</option><option value="27">2027</option><option value="28">2028</option><option value="29">2029</option><option value="30">2030</option><option value="31">2031</option><option value="32">2032</option><option value="33">2033</option><option value="34">2034</option><option value="35">2035</option><option value="36">2036</option><option value="37">2037</option><option value="38">2038</option><option value="39">2039</option><option value="40">2040</option><option value="41">2041</option><option value="42">2042</option><option value="43">2043</option><option value="44">2044</option>                                          </select>
+                                        </div>
+                                    </div>
+                                    <div class="margin-bottom-5">
+                                        <div class="phone-12 columns"><label>Security Code:*</label></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="phone-6 columns form-holder">
+                                        <input type="tel" name="CVV" class="form-control required" data-validate="cvv" maxlength="3" data-error-message="Please enter a valid CVV code!" placeholder="•••" oninput="javascript: this.value = this.value.replace(/[^0-9]/g, '');">
+                                        </div>
+                                        <div class="phone-6 columns">
+                                            <span class="cvv-link">
+                                                <a class="ccvwhatsthis form-link cvvbox" href="javascript:void(0)" style="margin: 11px 0 0 6px;">Where can I find my Security Code?</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="cvv-image clear" style="display: none;"><img alt="" src="img/cvv-image.png"></div>
+                                    <div class="clear"></div>
+                                    <div class="form__footer">
+                                        <button id="submitButton" class="send-btn loading-btn btn_pulse form-submit-button" type="button">
+                                            <span>RUSH MY ORDER!</span>
+                                        </button>
+                                        <div class="secure-icon"><span>Secure 256-bit SSL Encryption</span></div>
+                                        <!--<label for="subscribe" class="subscribe_label">
+                                            <input type="checkbox" class="subscribe_option" id="subscribe" checked />
+                                            <span></span>
+                                            <p>Subscribe & Save</p>
+                                        </label>-->
+                                        <ul class="form__cards">
+                                            <li><img alt="" src="img/visa.svg"></li>
+                                            <li><img alt="" src="img/mastercard.svg"></li>
+                                            <!--<li><img alt="" src="/v10dtc/app/desktop/images/discover.png" /></li>
+                                            <li><img alt="" src="/v10dtc/app/desktop/images/amex.png" /></li>-->
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="container">
+                <img class="img-responsive secure-icons show-mobile" src="img/secureicons_14.svg">
+                                <div class="guarantee-block show-mobile">
+                                    <div class="guarantee-top">30 day money back guarantee</div>
+                                    <div class="guarantee-content">
+                                        <img alt="" class="guarantee-icon" src="img/30-money.png"> 
+                                        <div class="guarantee-text">
+                                            <p>
+                                                We are so confident in our products and services, that
+                                                we back it with a 30 day money back guarantee. If for
+                                                any reason you are not fully satisfied with our
+                                                products, simply return the purchased products in the
+                                                original container within 30 days of when you received
+                                                your order. We will refund you 100% of the purchase
+                                                price - with absolutely no hassle.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                    <p>
+                        *The statements made on our websites have not been evaluated by
+                        the FDA (U.S. Food &amp; Drug Administration). Our products are
+                        not intended to diagnose, cure or prevent any disease. The
+                        information provided by this website or this company is not a
+                        substitute for a face-to-face consultation with your physician,
+                        and should not be construed as individual medical advice. The
+                        testimonials on this website are individual cases and do not
+                        guarantee that you will get the same results. Due to the nature of
+                        this product and to protect the privacy of the individuals, actual
+                        names and photographs of the individuals depicted in the
+                        testimonials have been changed. Individuals are remunerated.
+                    </p>
+                    <p>© <span class="container-year"></span>&nbsp;Aspen Dose. All Rights Reserved.</p>
+                    <ul class="terms-links">
+                        <li><a href="javascript:void(0);" onclick="javascript:openNewWindow('page-terms.php','modal');">Terms and
+                                Conditions |</a></li>
+                        <li><a href="javascript:void(0);" onclick="javascript:openNewWindow('page-privacy.php','modal');">Privacy Policy
+                                |</a></li>
+                        <li><a href="javascript:void(0);" onclick="javascript:openNewWindow('page-contact.php','modal');">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+
+            <section class="popup-pre-loading-wrapper" id="preloader">
+                <div class="popup">
+                    <figure class="product-image"></figure>
+                    <p>Reserving Your Bottle Of</p>
+                    <h2>CBD Gummies</h2>
+                    <img alt="" class="loading-image" src="img/icon-loading.png">
+                </div>
+            </section>
+
+            <section class="popup-pre-loading-wrapper" id="proc_popup" style="display: none;">
+                <div class="popup">
+                    <img alt="" class="lock-image" src="img/icon-lock.png">
+                    <p>Please wait a moment</p>
+                    <h3>Your Order is Now Being Processed</h3>
+                    <img alt="" class="loading-image" src="img/icon-loading.png">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="modal fade modal-lg" id="upsellModal" tabindex="-1" role="dialog" aria-labelledby="upsellModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-modal="true" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body upsell-modal-body">
+                    <div class="container-fluid position-relative">
+                        <div class="row2">
+                            <div class="col-lg-5 col-12 text-center d-flex justify-content-center align-items-center">
+                                <div class="pt-3 pb-4 upsellModal-product-image m-auto">
+                                    <img src="img/product2-5.png" class="img-fluid" id="product5B" style="display: none">
+                                    <img src="img/product2-3.png" class="img-fluid" id="product3B" style="display: none">
+                                    <img src="img/product2-2.png" class="img-fluid" id="product2B" style="display: none">
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-12 text-center d-flex flex-column justify-content-end pb-3">
+                                <h2 class="mb-2">Exclusive offer</h2>
+                                <h1 class="mb-4">
+                                    <b style="color: #ffd900">
+                                        DOUBLE <br> YOUR VALUE!
+                                    </b>
+                                </h1>
+                                <h5 class="mb-1">
+                                    Upgrade from 500MG (20 gummies/ bottle) <br>
+                                </h5>
+                                <h4 class="mb-5">
+                                    <b>to 1000MG (40 gummies/ bottle) </b><br>
+                                </h4>
+                                <h5 class="mb-0">
+                                    <small class="unimportant">For Only <span class="small-price">$9.99</span> More Per
+                                        Bottle</small>
+                                </h5>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="send-btn mb-3 btn_pulse" id="upsellAccept" data-value="5B">
+                                    COMPLETE CHECKOUT
+                                </button>
+                                <button class="send-btn-secondary" id="upsellDecline">
+                                    NO, THANK YOU
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="custom-social-proof">
+        <div class="custom-notification">
+            <div class="custom-notification-container">
+                <div class="custom-notification-image-wrapper">
+                    <img src="img/product.png">
+                </div>
+                <div class="custom-notification-content-wrapper">
+                    <p class="custom-notification-content">
+                        <span id="notify-customer">Eli H</span>. - <span id="notify-state">TX</span><br> Purchased
+                        <strong><span id="notify-quantity">7</span></strong> Bottle(s) of Aspen Dose CBD
+                        Gummies<small><span id="notify-ago">9 minutes ago</span></small>
+                    </p>
+                </div>
+            </div>
+            <div class="custom-close"></div>
+        </div>
+    </section>
+
+    <!--popup processing wrapper-->
+    <section id="loading-indicator1" class="popup-loading-wrapper" style="display: none">
+        <div class="popup">
+            <img src="img/icon-lock_zudnet.png" alt="" class="lock-image">
+            <p>Please wait a moment</p>
+            <h3>Your Order is Now Being Processed</h3>
+            <img src="img/icon-loading_fqv5fd.png" alt="" class="loading-image">
+        </div>
+    </section>
+    <!--end popup processing wrapper-->
+    <p id="loading-indicator" style="display:none;">Processing...</p>
+    
+    <div class="modal-backdrop fade show" style="display: none;"></div>
+    
+<script type="text/javascript">AJAX_PATH="ajax.php/"; app_config={"valid_class":"no-error","error_class":"has-error","loading_class":"loading","exit_popup_enabled":false,"exit_popup_element_id":"","exit_popup_page":"","offer_path":"\/v10dtc\/","current_step":1,"cbtoken":"fcf0f9565323c93f7380c4052051810e","dev_mode":"Y","show_validation_errors":"modal","allowed_tc":"8\"m0l0d0J050k050O0lv8sm\"l\"d4J454k454O4l480mvlsd\"J\"50k151O1l181m1l7dvJs5\"k\"50O1l089m0l3d4J45vks5\"O\"l484m4l4d4J454k15vOsl\"8\"m4l4d4J454k454O3lv8sm\"l\"d4J454k454O4l485mmlsdeJ\"5[r0j0V0H0q0h0k0R0X|Niraj,V1H4q4h4k4R4X4N4r|jiVaH,q6h1k1R1X1N1r1j1V|Hiqah,k6R1X0N0r9j1V9H2q|hikaR,X1N4r4j4V4H4q4h4k|RiXaN,r1j4V4H4q4h4k4R4X|Niraj,V1H4q4h4k4R4X4N4r|jaVtHrq]","allowed_country_codes":["US"],"countries":{"US":{"name":"United States","states":{"AL":{"name":"Alabama"},"AK":{"name":"Alaska"},"AS":{"name":"American Samoa"},"AZ":{"name":"Arizona"},"AR":{"name":"Arkansas"},"CA":{"name":"California"},"CO":{"name":"Colorado"},"CT":{"name":"Connecticut"},"DE":{"name":"Delaware"},"DC":{"name":"District of Columbia"},"FM":{"name":"Federated States of Micronesia"},"FL":{"name":"Florida"},"GA":{"name":"Georgia"},"GU":{"name":"Guam"},"HI":{"name":"Hawaii"},"ID":{"name":"Idaho"},"IL":{"name":"Illinois"},"IN":{"name":"Indiana"},"IA":{"name":"Iowa"},"KS":{"name":"Kansas"},"KY":{"name":"Kentucky"},"LA":{"name":"Louisiana"},"ME":{"name":"Maine"},"MD":{"name":"Maryland"},"MA":{"name":"Massachusetts"},"MI":{"name":"Michigan"},"MN":{"name":"Minnesota"},"MS":{"name":"Mississippi"},"MO":{"name":"Missouri"},"MT":{"name":"Montana"},"NE":{"name":"Nebraska"},"NV":{"name":"Nevada"},"NH":{"name":"New Hampshire"},"NJ":{"name":"New Jersey"},"NM":{"name":"New Mexico"},"NY":{"name":"New York"},"NC":{"name":"North Carolina"},"ND":{"name":"North Dakota"},"MP":{"name":"Northern Mariana Islands"},"OH":{"name":"Ohio"},"OK":{"name":"Oklahoma"},"OR":{"name":"Oregon"},"PA":{"name":"Pennsylvania"},"PR":{"name":"Puerto Rico"},"MH":{"name":"Republic of Marshall Islands"},"RI":{"name":"Rhode Island"},"SC":{"name":"South Carolina"},"SD":{"name":"South Dakota"},"TN":{"name":"Tennessee"},"TX":{"name":"Texas"},"UT":{"name":"Utah"},"VT":{"name":"Vermont"},"VI":{"name":"Virgin Islands of the U.S."},"VA":{"name":"Virginia"},"WA":{"name":"Washington"},"WV":{"name":"West Virginia"},"WI":{"name":"Wisconsin"},"WY":{"name":"Wyoming"}}}},"country_lang_mapping":{"US":{"state":"State:","zip":"Zip Code:"},"GB":{"state":"County:","zip":"Postal Code:"},"CA":{"state":"Province:","zip":"Pin Code:"},"IN":{"state":"State:","zip":"Pin:"}},"device_is_mobile":false,"pageType":"leadPage","enable_browser_back_button":false,"disable_trialoffer_cardexp":false,"enable_csrf_token":true}</script><script type="text/javascript">app_lang={"error_messages":{"zip_invalid":"Please enter a valid zip code!","email_invalid":"Please enter a valid email id!","cc_invalid":"Please enter a valid credit card number!","cvv_invalid":"Please enter a valid CVV code!","card_expired":"Card seems to have expired already!","card_expire_soon":"Your credit card is about to expire, please update your card information.","common_error":"Oops! Something went wrong! Can you please retry?","not_checked":"Please check the agreement box in order to proceed.","ca_zip_invalid":"Invalid Canada state code","xv_invalid_shipping":"Your shipping address could not be verified","xv_email":"Your email address could not be verified","xv_phone":"Your phone number could not be verified"},"exceptions":{"config_error":"General config error","config_file_missing":"General config error","invalid_array":"Argument is not a valid array","empty_prospect_id":"Prospect ID is empty or invalid","curl_error":"Something went wrong with the request, Please try again.","generic_error":"Something went wrong with the request, Please try again."}};</script><script type="text/javascript">var cbUtilConfig = {"disable_non_english_char_input":false};</script>
+<script src="js/promise.min.js" type="text/javascript"></script>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery.mask.min.js" type="text/javascript"></script>
+<script src="js/validator.js" type="text/javascript"></script>
+<script src="js/codebase.js" type="text/javascript"></script>
+<script src="js/form_handler.js" type="text/javascript"></script>
+<script src="js/app.js" type="text/javascript"></script>
+<script src="js/outro.js" type="text/javascript"></script>
+<script src="js/cb-util-pkg.js" type="text/javascript"></script><script>$(function(){$.get("/v10dtc/ajax.php/extensions/checktrafficnew/initialize");});</script>        <script type="text/javascript">
+            $(function(){
+
+                setTimeout(function(){
+                    $.get("/v10dtc/ajax.php/extensions/checktrafficnew/place", function( data ) {
+                        if(data == null) return;
+                
+                        if(typeof data == 'string') {
+                            data = JSON.parse(data);
+                        }
+                
+                        data.forEach(function(el) {
+                            
+                            if(el.type == 'head') {
+                                $('head').append(el.content);
+                            }
+    
+                            if(el.type == 'top') {
+                                $('body').prepend(el.content);
+                            }
+    
+                            if(el.type == 'bottom') {
+                                $('body').append(el.content);
+                            }
+                        });
+                    });
+                }, 500);
+                
+            });
+            
+        </script>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" crossorigin="anonymous"></script>
+ <script type="text/javascript">
+ //Select opction color change
+$(document).ready(function () {
+    $("select").each(function (i, select) {
+        SetSelectColor(select);
+    });
+    $("select option").css('color', '#000');
+    $("select option:first-child[value='']").css('color', '#757575');
+    $("select").change(Select_Changed);    
+});
+
+function Select_Changed() {
+    SetSelectColor(this);   
+}
+
+function SetSelectColor(select) {
+    var value = $(select).val();
+    $(select).css('color', value != '' ? 'black' : '#757575');
+}
+ </script>
+<script type="text/javascript"> 
+
+ // form submission
+                $(document).off('click', '.form-submit-button');
+                $(document).on('click', '.form-submit-button', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    $('form[name=downsell_form1]').submit();
+                });
+
+
+
+   $(document).ready(function() {
+    $('#submitButton').off('click');
+    $('#submitButton').on('click', function() {
+        cb.beforeFormSubmitEvents.push(function(e) {
+            $('#loading-indicator').show();
+            $.ajax({
+                url: AJAX_PATH + 'downsell', // available FORM_ACTION values : prospect, checkout, upsell, downsell
+                method: 'post',
+                data: $('form[name=downsell_form1]').serialize()
+            }).success(function(data) {
+                if (data.success) {
+                    location.replace(data.redirect);
+                   
+                } else {
+                    $('#loading-indicator').hide();
+                   // alert('error');
+                    cb.errorHandler(['Hi! Please reply to your bank’s message or call them to approve the transaction, then try again. Thank you!']);
+                   
+                }
+            })
+        })
+    })
+}); 
+</script>
+
+    <script type="text/javascript">
+
+        // billing-shipping selection
+        $(document).off('click', '#billing_checkbox');
+        $(document).on('click', '#billing_checkbox', function(e) {
+            if ($(this).is(":checked")) { 
+                $('input[name=billingSameAsShipping]').val('yes').trigger('change');
+            } else { 
+                $('input[name=billingSameAsShipping]').val('no').trigger('change');
+                $("[name=billingState]").val("");
+            }
+
+            $('input[name="billingAddress2"]').removeClass("required");
+        });
+
+
+        $('.sel-prod').click(function (e) {
+            $('.sel-prod').removeClass('active');
+            $(this).addClass('active');
+
+            $('.package-info__btn').html('Select Package');
+            $(this).find('.package-info__btn').html('Selected!');
+
+            if ($(this).hasClass('product1')) {
+                $('#product2').val('5B');
+                $('#campaign_id').val('3');
+            } else if ($(this).hasClass('product2')) {
+                $('#product2').val('3B');
+                $('#campaign_id').val('2');
+            } else {
+                $('#product2').val('2B');
+                $('#campaign_id').val('1');
+            }
+        });
+
+
+
+        $(function ($) {
+            $(".cvv-link").click(function () {
+                $(this).parent().parent().siblings(".cvv-image").slideToggle();
+            });
+        });
+
+        $(function ($) {
+            var date = new Date();
+            $(".container-year").text(date.getFullYear());
+        })
+
+        $(window).on('load', function () {
+            var $preloader = $('#preloader');
+            var $preloader2 = $('#popup-loading-wrapper2');
+            $preloader.delay(500).fadeOut('slow');
+            $preloader2.delay(500).fadeOut('slow');
+        });
+
+        $(function ($) {
+            var mydate = new Date();
+            var montharray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",];
+            $(".date-container").text(" " + montharray[mydate.getMonth()] + " " + mydate.getDate() + ", " + mydate.getFullYear());
+        });
+
+
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $(".header").offset().top
+        }, 200);
+    </script>
+
+    <script>
+        //----custom-social-proof----//
+        var customerFirst = ['Liam', 'Emma', 'Noah', 'Olivia', 'William', 'Ava', 'James', 'Isabella', 'Logan', 'Sophia', 'Benjamin', 'Mia', 'Mason', 'Charlotte', 'Elijah', 'Amelia', 'Oliver', 'Evelyn', 'Jacob', 'Abigail', 'Lucas', 'Harper', 'Michael', 'Emily', 'Alexander', 'Elizabeth', 'Ethan', 'Avery', 'Daniel', 'Sofia', 'Matthew', 'Ella', 'Aiden', 'Madison', 'Henry', 'Scarlett', 'Joseph', 'Victoria', 'Jackson', 'Aria', 'Samuel', 'Grace', 'Sebastian', 'Chloe', 'David', 'Camila', 'Carter', 'Penelope', 'Wyatt', 'Riley', 'Jayden', 'Layla', 'John', 'Lillian', 'Owen', 'Nora', 'Dylan', 'Zoey', 'Luke', 'Mila', 'Gabriel', 'Aubrey', 'Anthony', 'Hannah', 'Isaac', 'Lily', 'Grayson', 'Addison', 'Jack', 'Eleanor', 'Julian', 'Natalie', 'Levi', 'Luna', 'Christopher', 'Savannah', 'Joshua', 'Brooklyn', 'Andrew', 'Leah', 'Lincoln', 'Zoe', 'Mateo', 'Stella', 'Ryan', 'Hazel', 'Jaxon', 'Ellie', 'Nathan', 'Paisley', 'Aaron', 'Audrey', 'Isaiah', 'Skylar', 'Thomas', 'Violet', 'Charles', 'Claire', 'Caleb', 'Bella', 'Josiah', 'Aurora', 'Christian', 'Lucy', 'Hunter', 'Anna', 'Eli', 'Samantha', 'Jonathan', 'Caroline', 'Connor', 'Genesis', 'Landon', 'Aaliyah', 'Adrian', 'Kennedy', 'Asher', 'Kinsley', 'Cameron', 'Allison', 'Leo', 'Maya', 'Theodore', 'Sarah', 'Jeremiah', 'Madelyn', 'Hudson', 'Adeline', 'Robert', 'Alexa', 'Easton', 'Ariana', 'Nolan', 'Elena', 'Nicholas', 'Gabriella', 'Ezra', 'Naomi', 'Colton', 'Alice', 'Angel', 'Sadie', 'Brayden', 'Hailey', 'Jordan', 'Eva', 'Dominic', 'Emilia', 'Austin', 'Autumn', 'Ian', 'Quinn', 'Adam', 'Nevaeh', 'Elias', 'Piper', 'Jaxson', 'Ruby', 'Greyson', 'Serenity', 'Jose', 'Willow', 'Ezekiel', 'Everly', 'Carson', 'Cora', 'Evan', 'Kaylee', 'Maverick', 'Lydia', 'Bryson', 'Aubree', 'Jace', 'Arianna', 'Cooper', 'Eliana', 'Xavier', 'Peyton', 'Parker', 'Melanie', 'Roman', 'Gianna', 'Jason', 'Isabelle', 'Santiago', 'Julia', 'Chase', 'Valentina', 'Sawyer', 'Nova', 'Gavin', 'Clara', 'Leonardo', 'Vivian', 'Kayden', 'Reagan', 'Ayden', 'Mackenzie', 'Jameson', 'Madeline', 'Noah', 'William', 'James', 'Logan', 'Benjamin', 'Mason', 'Elijah', 'Oliver', 'Jacob', 'Lucas', 'Michael', 'Alexander', 'Ethan', 'Daniel', 'Matthew', 'Aiden', 'Henry', 'Joseph', 'Jackson', 'Samuel', 'Sebastian', 'David', 'Carter', 'Wyatt', 'Jayden', 'John', 'Owen', 'Dylan', 'Luke', 'Gabriel', 'Anthony', 'Isaac', 'Grayson', 'Jack', 'Julian', 'Levi', 'Christopher', 'Joshua', 'Andrew', 'Lincoln', 'Mateo', 'Ryan', 'Jaxon', 'Nathan', 'Aaron', 'Isaiah', 'Thomas', 'Charles', 'Caleb', 'Josiah', 'Christian', 'Hunter', 'Eli', 'Jonathan', 'Connor', 'Landon', 'Adrian', 'Asher', 'Cameron', 'Leo', 'Theodore', 'Jeremiah', 'Hudson', 'Robert', 'Easton', 'Nolan', 'Nicholas', 'Ezra', 'Colton', 'Angel', 'Brayden', 'Jordan', 'Dominic', 'Austin', 'Ian', 'Adam', 'Elias', 'Jaxson', 'Greyson', 'Jose', 'Ezekiel', 'Carson', 'Evan', 'Maverick', 'Bryson', 'Jace', 'Cooper', 'Xavier', 'Parker', 'Roman', 'Jason', 'Santiago', 'Chase', 'Sawyer', 'Gavin', 'Leonardo', 'Kayden', 'Ayden', 'Jameson', 'Kevin', 'Bentley', 'Zachary', 'Everett', 'Axel', 'Tyler', 'Micah', 'Vincent', 'Weston', 'Miles', 'Wesley', 'Nathaniel', 'Harrison', 'Brandon', 'Cole', 'Declan', 'Luis', 'Braxton', 'Damian', 'Silas', 'Tristan', 'Ryder', 'Bennett', 'George', 'Emmett', 'Justin', 'Kai', 'Max', 'Diego', 'Luca', 'Ryker', 'Carlos', 'Maxwell', 'Kingston', 'Ivan', 'Maddox', 'Juan', 'Ashton', 'Jayce', 'Rowan', 'Kaiden', 'Giovanni', 'Eric', 'Jesus', 'Calvin', 'Abel', 'King', 'Camden', 'Amir', 'Blake', 'Alex', 'Brody', 'Malachi', 'Emmanuel', 'Jonah', 'Beau', 'Jude', 'Antonio', 'Alan', 'Elliott', 'Elliot', 'Waylon', 'Xander', 'Timothy', 'Victor', 'Bryce', 'Finn', 'Brantley', 'Edward', 'Abraham', 'Patrick'];
+        var customerLast = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        var customerStates = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
+        var customerQuantities = ['3', '5'];
+
+        function updateSocial() {
+            var rCustomerFirst = customerFirst[Math.floor(Math.random() * customerFirst.length)];
+            var rCustomerLast = customerLast[Math.floor(Math.random() * customerLast.length)];
+            var rStates = customerStates[Math.floor(Math.random() * customerStates.length)];
+            var rQuantities = customerQuantities[Math.floor(Math.random() * customerQuantities.length)];
+            var rAgo = Math.floor(Math.random() * 21) + 1;
+            $('#notify-customer').html(rCustomerFirst + ' ' + rCustomerLast);
+            $('#notify-state').html(rStates);
+            $('#notify-quantity').html(rQuantities);
+            $('#notify-ago').html(rAgo + ' minutes ago');
+            if (rQuantities > 1) {
+                $('#notify-multiple').html('s');
+            } else {
+                $('#notify-multiple').html('');
+            }
+        }
+
+        setInterval(function () {
+            var divID = $('.custom-social-proof');
+            if (divID.is(':hidden')) {
+                $('.custom-social-proof').stop().slideToggle('slow');
+                updateSocial();
+            } else {
+                $(divID).stop().slideToggle('slow');
+            }
+        }, 7000);
+
+        $('.custom-close').click(function () {
+            $('.custom-social-proof').stop().slideToggle('slow');
+        });
+
+    </script>
+   
+    
+
+    <script>
+         let checkBox = document.getElementById("billing_checkbox");
+
+         checkBox.addEventListener("click",()=>{
+
+            if (checkBox.checked){
+
+
+              document.body.scrollTop = 0; 
+             document.documentElement.scrollTop = 0;
+
+
+            }
+
+
+         })
+      </script>
+
+
+</body></html>
