@@ -790,7 +790,7 @@ ul.s4-list1 li:before {
 	display: block;
 	width: 90px;
 	height: 90px;
-	background: url(../img/CBD.svg) no-repeat center!important;
+	background: url(../img/THC.svg) no-repeat center!important;
 	position: absolute;
 	left: 15px;
 	background-size: contain!important;
@@ -1943,7 +1943,7 @@ ul.s4-list2 li:nth-child(3):before {
 
 .first-section__bottle:before {
 	content: "";
-	background: url(../img/CBD.svg) no-repeat;
+	background: url(../img/THC.svg) no-repeat;
 	background-size: cover;
 	height: 90px;
 	width: 90px;
